@@ -10,12 +10,13 @@ MCD_GREEN = "#1b5e20"
 st.markdown(
     f"""
     <style>
-        body, .stApp {{
-            background: #ffffff;
-            color: #0f0f0f;
+        :root {{ color-scheme: light; }}
+        body, .stApp, div[data-testid="stAppViewContainer"], div[data-testid="stDecoration"] {{
+            background: #ffffff !important;
+            color: #0f0f0f !important;
         }}
-        h1, h2, h3, h4, p, label, span, div {{
-            color: #0f0f0f;
+        h1, h2, h3, h4, p, label, span, div, .stMarkdown {{
+            color: #0f0f0f !important;
         }}
         .mcd-header {{
             background: linear-gradient(90deg, {MCD_YELLOW} 0%, {MCD_GREEN} 100%);
@@ -26,14 +27,26 @@ st.markdown(
             margin-bottom: 12px;
         }}
         /* Inputs en buttons licht */
-        .stTextInput > div > input,
-        .stDateInput > div > input,
-        .stTextInput > div > div > input,
-        .stDateInput > div > div > input {{
-            border: 1.4px solid #d6d6d6 !important;
-            background: #ffffff !important;
+        .stTextInput input[type="text"],
+        .stDateInput input[type="text"],
+        div[data-baseweb="input"] input {{
+            border: 1.4px solid #cfcfcf !important;
+            background: #f8f8fb !important;
             color: #0f0f0f !important;
             border-radius: 8px !important;
+            box-shadow: none !important;
+        }}
+        /* Progress bars groen */
+        .stProgress > div > div {{
+            background: {MCD_GREEN} !important;
+        }}
+        /* Checkbox borders donker, achtergrond wit */
+        div[data-testid="stCheckbox"] > label {{
+            color: #0f0f0f !important;
+        }}
+        div[role="checkbox"] {{
+            border: 1.3px solid #777 !important;
+            background: #ffffff !important;
         }}
         button[kind="secondary"] {{
             background: #f7f7fa !important;
